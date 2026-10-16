@@ -1,0 +1,698 @@
+/* ========================================
+     1. VARIABLES Y CONFIGURACIÓN GENERAL
+  ======================================== */
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f3f2fa;
+  background: #0b0b12;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+
+  --fondo: #0b0b12;
+  --fondo-secundario: rgba(17, 17, 28, 0.78);
+  --texto-secundario: #aaa9bd;
+  --violeta: #a78bfa;
+  --azul: #60a5fa;
+  --verde: #4ade80;
+  --borde: rgba(167, 139, 250, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--fondo);
+  scroll-padding-top: 24px;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: transparent;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -35%;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(124, 58, 237, 0.23) 0%,
+      rgba(124, 58, 237, 0.07) 28%,
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 85% 40%,
+      rgba(37, 99, 235, 0.19) 0%,
+      rgba(37, 99, 235, 0.06) 30%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 80%,
+      rgba(168, 85, 247, 0.15) 0%,
+      transparent 42%
+    );
+
+  animation: ambiente-dinamico 12s ease-in-out infinite alternate;
+}
+
+@keyframes ambiente-dinamico {
+  0% {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(3%, 2%, 0) scale(1.1);
+  }
+
+  100% {
+    transform: translate3d(-2%, 4%, 0) scale(1.05);
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--violeta);
+  outline-offset: 5px;
+}
+
+/* ========================================
+     2. CABECERA Y NAVEGACIÓN
+  ======================================== */
+
+.cabecera {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 8%;
+
+  border-bottom: 1px solid var(--borde);
+  background: rgba(11, 11, 18, 0.38);
+  backdrop-filter: blur(14px);
+}
+
+.logo {
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--violeta);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+nav a {
+  color: var(--texto-secundario);
+  font-size: 0.9rem;
+  transition: color 0.25s ease;
+}
+
+nav a:hover {
+  color: var(--violeta);
+}
+
+/* ========================================
+     3. PORTADA
+  ======================================== */
+
+.hero {
+  position: relative;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 100px 12%;
+  overflow: hidden;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 11, 18, 0.04) 0%,
+    rgba(11, 11, 18, 0.02) 65%,
+    rgba(11, 11, 18, 0.18) 100%
+  );
+}
+
+.etiqueta {
+  margin: 0;
+  color: var(--violeta);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.8;
+}
+
+.hero h1 {
+  max-width: 900px;
+  margin: 24px 0;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1.08;
+  letter-spacing: -3px;
+}
+
+.hero h1 span {
+  display: block;
+  color: var(--violeta);
+  text-shadow: 0 0 45px rgba(167, 139, 250, 0.14);
+}
+
+.introduccion {
+  max-width: 600px;
+  margin: 0;
+  color: var(--texto-secundario);
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.boton:hover {
+  transform: translateY(-3px);
+}
+
+.boton-principal {
+  color: #0b0b12;
+  background: var(--violeta);
+  border-color: var(--violeta);
+}
+
+.boton-principal:hover {
+  background: #c4b5fd;
+  border-color: #c4b5fd;
+}
+
+.boton-secundario {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.boton-secundario:hover {
+  background: rgba(167, 139, 250, 0.1);
+  border-color: rgba(167, 139, 250, 0.45);
+}
+
+.disponibilidad {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 36px;
+  color: var(--texto-secundario);
+  font-size: 0.85rem;
+}
+
+.indicador {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--verde);
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.45);
+}
+
+.indicacion-scroll {
+  position: absolute;
+  right: 12%;
+  bottom: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 44px;
+
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  border-radius: 20px;
+}
+
+.indicacion-scroll span {
+  width: 4px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--violeta);
+  animation: bajar-indicador 1.7s ease-in-out infinite;
+}
+
+@keyframes bajar-indicador {
+  0% {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(7px);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+     4. SECCIONES GENERALES
+  ======================================== */
+
+.seccion {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 90px 40px;
+  scroll-margin-top: 24px;
+}
+
+.seccion h2 {
+  max-width: 850px;
+  margin: 16px 0 24px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.texto-seccion {
+  max-width: 760px;
+  color: var(--texto-secundario);
+  line-height: 1.9;
+}
+
+/* ========================================
+     5. TECNOLOGÍAS
+  ======================================== */
+
+.grupo-tecnologias {
+  margin-top: 32px;
+}
+
+.grupo-tecnologias h3 {
+  margin-bottom: 14px;
+  color: #d9d6e9;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.tecnologias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tecnologias span {
+  padding: 12px 18px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+
+  background: rgba(17, 17, 28, 0.7);
+  color: #d9d6e9;
+  font-size: 0.9rem;
+
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.tecnologias span:hover {
+  transform: translateY(-3px);
+  border-color: rgba(167, 139, 250, 0.5);
+  background: rgba(167, 139, 250, 0.08);
+}
+
+.nota {
+  margin-top: 28px;
+  color: var(--texto-secundario);
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+/* ========================================
+     6. TARJETAS DE PROYECTOS
+  ======================================== */
+
+.rejilla-proyectos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.tarjeta-proyecto {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+  padding: 30px;
+
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(24, 23, 40, 0.82),
+    rgba(13, 13, 23, 0.8)
+  );
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.tarjeta-proyecto:hover {
+  transform: translateY(-5px);
+  border-color: rgba(167, 139, 250, 0.42);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.16);
+}
+
+.cabecera-proyecto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.numero {
+  color: var(--azul);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.punto-proyecto {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--violeta);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.5);
+}
+
+.icono-proyecto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 54px;
+  height: 54px;
+  margin-top: 28px;
+
+  border: 1px solid rgba(167, 139, 250, 0.22);
+  border-radius: 12px;
+
+  background: rgba(167, 139, 250, 0.08);
+  color: var(--violeta);
+
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.tarjeta-proyecto h3 {
+  margin: 22px 0 12px;
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
+}
+
+.tarjeta-proyecto > p {
+  margin: 0;
+  color: var(--texto-secundario);
+  font-size: 0.93rem;
+  line-height: 1.85;
+}
+
+.etiquetas-proyecto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.etiquetas-proyecto span {
+  padding: 7px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 5px;
+
+  background: rgba(255, 255, 255, 0.025);
+  color: #c4c1d6;
+  font-size: 0.73rem;
+}
+
+.estado {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 7px 10px;
+
+  border-radius: 5px;
+  background: rgba(167, 139, 250, 0.09);
+  color: var(--violeta);
+
+  font-size: 0.76rem;
+}
+
+.estado-activo {
+  background: rgba(74, 222, 128, 0.09);
+  color: var(--verde);
+}
+
+.estado-privado {
+  background: rgba(96, 165, 250, 0.09);
+  color: var(--azul);
+}
+
+.enlace-proyecto {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+
+  color: var(--violeta);
+  font-size: 0.88rem;
+  font-weight: 700;
+
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
+}
+
+.enlace-proyecto:hover {
+  gap: 12px;
+  color: #c4b5fd;
+}
+
+.nota-proyectos {
+  max-width: 760px;
+}
+
+/* ========================================
+     7. CONTACTO
+  ======================================== */
+
+.contacto {
+  padding-bottom: 120px;
+}
+
+.contacto h2 {
+  max-width: 750px;
+}
+
+.contacto .acciones {
+  margin-top: 32px;
+}
+
+/* ========================================
+     8. PIE DE PÁGINA
+  ======================================== */
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+
+  padding: 28px 8%;
+  border-top: 1px solid var(--borde);
+
+  background: rgba(11, 11, 18, 0.3);
+  color: var(--texto-secundario);
+  font-size: 0.8rem;
+}
+
+footer p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.logo-footer {
+  color: #f3f2fa;
+  font-size: 1.1rem;
+  justify-self: start;
+}
+
+footer p:first-of-type {
+  text-align: center;
+}
+
+footer p:last-of-type {
+  text-align: right;
+}
+
+/* ========================================
+     9. DISEÑO RESPONSIVE
+  ======================================== */
+
+@media (max-width: 800px) {
+  .cabecera {
+    padding-right: 6%;
+    padding-left: 6%;
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  .hero {
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+
+  .rejilla-proyectos {
+    grid-template-columns: 1fr;
+  }
+
+  .seccion {
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+
+  .indicacion-scroll {
+    right: 7%;
+  }
+
+  footer {
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+}
+
+@media (max-width: 520px) {
+  .cabecera {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  nav {
+    gap: 12px 18px;
+  }
+
+  nav a {
+    font-size: 0.83rem;
+  }
+
+  .hero {
+    min-height: 590px;
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
+    letter-spacing: -1.8px;
+  }
+
+  .introduccion {
+    font-size: 0.98rem;
+  }
+
+  .etiqueta {
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+  }
+
+  .indicacion-scroll {
+    bottom: 28px;
+  }
+
+  .seccion {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .tarjeta-proyecto {
+    padding: 24px;
+  }
+
+  .contacto {
+    padding-bottom: 90px;
+  }
+
+  footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* ========================================
+     10. ACCESIBILIDAD: REDUCIR MOVIMIENTO
+  ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

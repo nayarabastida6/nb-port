@@ -1,16 +1,307 @@
 ---
+import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio de Nayara Bastida, estudiante de Desarrollo de Aplicaciones Web. Descubre mis proyectos, tecnologías y evolución como desarrolladora."
+    />
+    <meta name="theme-color" content="#0b0b12" />
+    <title>Nayara Bastida | Desarrollo Web</title>
+  </head>
+
+  <body>
+    <!-- Navegación principal -->
+    <header class="cabecera">
+      <a class="logo" href="#inicio" aria-label="Portfolio de Nayara, inicio">
+        NB Port.<span>.</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#tecnologias">Tecnologías</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Presentación -->
+      <section class="hero" id="inicio">
+        <p class="etiqueta">ESTUDIANTE DE DESARROLLO DE APLICACIONES WEB</p>
+
+        <h1>
+          No solo quiero entender la tecnología,<br />
+          <span>quiero crear con ella.</span>
+        </h1>
+
+        <p class="introduccion">
+          Estoy construyendo mi camino en el desarrollo web, aprendiendo,
+          experimentando y, por supuesto, fallando. Cada error es una
+          oportunidad para descubrir algo nuevo y mejorar mis habilidades.
+        </p>
+
+        <div class="acciones">
+          <a class="boton boton-principal" href="#proyectos">
+            Explorar proyectos
+          </a>
+
+          <a class="boton boton-secundario" href="#sobre-mi"> Conocerme </a>
+        </div>
+
+        <p class="disponibilidad">
+          <span class="indicador"></span>
+          En constante aprendizaje y abierta a nuevos retos
+        </p>
+
+        <a
+          class="indicacion-scroll"
+          href="#sobre-mi"
+          aria-label="Desplazarse a la siguiente sección"
+        >
+          <span></span>
+        </a>
+      </section>
+
+      <!-- Sobre mí -->
+      <section class="seccion" id="sobre-mi">
+        <p class="etiqueta">01 / SOBRE MÍ</p>
+
+        <h2>Aprender. Crear. Evolucionar.</h2>
+
+        <p class="texto-seccion">
+          Soy estudiante de Desarrollo de Aplicaciones Web y estoy en constante
+          aprendizaje para fortalecer mis conocimientos. Este portfolio recoge
+          mi evolución, los proyectos que desarrollo y las tecnologías que voy
+          descubriendo durante mi formación.
+        </p>
+
+        <p class="texto-seccion">
+          Mi objetivo es seguir construyendo una base sólida en desarrollo web,
+          experimentar con nuevas herramientas y convertir cada idea en una
+          oportunidad para aprender.
+        </p>
+      </section>
+
+      <!-- Tecnologías -->
+      <section class="seccion" id="tecnologias">
+        <p class="etiqueta">02 / TECNOLOGÍAS</p>
+
+        <h2>Mi entorno de aprendizaje</h2>
+
+        <p class="texto-seccion">
+          Estas son algunas de las tecnologías y herramientas con las que
+          trabajo, estudio y desarrollo mis proyectos.
+        </p>
+
+        <div class="grupo-tecnologias">
+          <h3>Desarrollo web</h3>
+
+          <div class="tecnologias">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Astro</span>
+          </div>
+        </div>
+
+        <div class="grupo-tecnologias">
+          <h3>Datos y control de versiones</h3>
+
+          <div class="tecnologias">
+            <span>SQL</span>
+            <span>Git</span>
+          </div>
+        </div>
+
+        <div class="grupo-tecnologias">
+          <h3>Entorno de trabajo</h3>
+
+          <div class="tecnologias">
+            <span>VS Code</span>
+            <span>NeoVim</span>
+            <span>Linux</span>
+            <span>Windows</span>
+            <span>Microsoft 365</span>
+          </div>
+        </div>
+
+        <p class="nota">
+          Esta sección evolucionará a medida que avance mi formación y adquiera
+          experiencia práctica con nuevas herramientas.
+        </p>
+      </section>
+
+      <!-- Proyectos -->
+      <section class="seccion" id="proyectos">
+        <p class="etiqueta">03 / PROYECTOS</p>
+
+        <h2>Ideas en construcción.</h2>
+
+        <p class="texto-seccion">
+          Cada proyecto representa una oportunidad para poner en práctica lo
+          aprendido, explorar nuevas soluciones y enfrentarme a retos reales de
+          desarrollo.
+        </p>
+
+        <div class="rejilla-proyectos">
+          <!-- Proyecto 1 -->
+          <article class="tarjeta-proyecto">
+            <div class="cabecera-proyecto">
+              <span class="numero">PROYECTO 001</span>
+              <span class="punto-proyecto"></span>
+            </div>
+
+            <div class="icono-proyecto" aria-hidden="true">&lt;/&gt;</div>
+
+            <h3>Portfolio personal</h3>
+
+            <p>
+              Una web personal desarrollada con Astro, HTML y CSS para presentar
+              mis proyectos, compartir mi aprendizaje y mostrar mi evolución
+              como desarrolladora web.
+            </p>
+
+            <div class="etiquetas-proyecto">
+              <span>Astro</span>
+              <span>HTML</span>
+              <span>CSS</span>
+            </div>
+
+            <span class="estado estado-activo"> En desarrollo </span>
+          </article>
+
+          <!-- Proyecto 2 -->
+          <article class="tarjeta-proyecto">
+            <div class="cabecera-proyecto">
+              <span class="numero">PROYECTO 002</span>
+              <span class="punto-proyecto"></span>
+            </div>
+
+            <div class="icono-proyecto" aria-hidden="true">◷</div>
+
+            <h3>FocusPocus</h3>
+
+            <p>
+              Una aplicación centrada en la productividad y la organización del
+              tiempo. Es un proyecto en evolución con una primera versión
+              publicada y funcionalidades que quiero seguir mejorando. Es una
+              herramienta muy útil tanto para estudiantes como para
+              profesionales que buscan optimizar su tiempo y mantener la
+              concentración en sus tareas.
+            </p>
+            <br />
+            <p>
+              Actualmente, los datos se almacenan en el almacenamiento local del
+              navegador, estoy trabajando en una solución para guardar los datos
+              de manera más permanente.
+            </p>
+
+            <div class="etiquetas-proyecto">
+              <span>Desarrollo web</span>
+              <span>Almacenamiento local</span>
+              <span>Productividad</span>
+            </div>
+
+            <a
+              class="enlace-proyecto"
+              href="https://focuspocus.surge.sh/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visitar proyecto <span aria-hidden="true">↗</span>
+            </a>
+
+            <span class="estado estado-activo"> Publicado · En evolución </span>
+          </article>
+
+          <!-- Proyecto 3 -->
+          <article class="tarjeta-proyecto">
+            <div class="cabecera-proyecto">
+              <span class="numero">PROYECTO 003</span>
+              <span class="punto-proyecto"></span>
+            </div>
+
+            <div class="icono-proyecto" aria-hidden="true">#93</div>
+
+            <h3>Proyect MotoGP</h3>
+
+            <p>
+              Una aplicación dedicada al mundo de MotoGP, pensada para reunir
+              información relevante en un mismo lugar: pilotos favoritos,
+              próximas carreras y clasificación por puntos. Un proyecto para
+              explorar cómo organizar y presentar datos deportivos de forma
+              clara.
+            </p>
+            <br />
+            <p>
+              Este proyecto está creado desde el fanatismo y la pasión por el
+              motociclismo, y aunque no es un proyecto profesional, me permite
+              aprender y experimentar con nuevas tecnologías y enfoques de
+              desarrollo web. Estoy usando la ayuda de Antigravity para su
+              creación, y aunque aún está en desarrollo, espero poder
+              compartirlo pronto con otros aficionados al motociclismo.
+            </p>
+
+            <div class="etiquetas-proyecto">
+              <span>Aplicación web</span>
+              <span>Datos deportivos</span>
+              <span>Fanatismo</span>
+            </div>
+
+            <span class="estado estado-privado"> Privado · En desarrollo </span>
+          </article>
+        </div>
+
+        <p class="nota nota-proyectos">
+          Los proyectos y sus funcionalidades evolucionarán a medida que
+          continúe trabajando en ellos. Este espacio se actualizará con nuevos
+          avances, aprendizajes y mejoras.
+        </p>
+      </section>
+
+      <!-- Contacto -->
+      <section class="seccion contacto" id="contacto">
+        <p class="etiqueta">04 / CONTACTO</p>
+
+        <h2>Las buenas ideas empiezan con una conversación.</h2>
+
+        <p class="texto-seccion">
+          Si quieres conocer más sobre mis proyectos, compartir ideas o hablar
+          sobre desarrollo web, puedes ponerte en contacto conmigo.
+        </p>
+
+        <div class="acciones">
+          <a class="boton boton-principal" href="mailto:nayarahlanz@gmail.com">
+            Envíame un correo
+          </a>
+
+          <a
+            class="boton boton-secundario"
+            href="https://www.linkedin.com/in/nayara-bastida"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Conectemos en LinkedIn ↗
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+      <a class="logo logo-footer" href="#inicio">
+        NB Port<span>.</span>
+      </a>
+
+      <p>Diseñado y desarrollado por Nayara Bastida.</p>
+
+      <p>© 2026 · Aprendiendo y evolucionando.</p>
+    </footer>
+  </body>
 </html>
