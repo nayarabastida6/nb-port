@@ -6,9 +6,9 @@ El proyecto forma parte de mi aprendizaje en Desarrollo de Aplicaciones Web (DAW
 
 ## Demo
 
-**Portfolio online:** próximamente.
+**Portfolio online:** https://nb-port.vercel.app/
 
-> El enlace público se añadirá cuando el proyecto esté desplegado.
+> El portfolio está publicado en Vercel y continúa en desarrollo. Iré incorporando mejoras y nuevos proyectos a medida que avance en mi formación.
 
 ## Sobre el proyecto
 
@@ -128,11 +128,11 @@ portfolio-nayara/
 
 ## Despliegue
 
-El objetivo es publicar NB Port. en una plataforma de despliegue como [Vercel](https://vercel.com/).
+NB Port. está desplegado en [Vercel](https://vercel.com/), donde se encuentra disponible una versión pública del portfolio.
 
-El proceso de publicación se realizará una vez que la versión inicial del portfolio esté preparada y se haya comprobado que compila correctamente.
+Portfolio online: https://nb-port.vercel.app/
 
-Cuando la web esté publicada, se añadirá aquí el enlace para acceder a ella.
+El proyecto continuará evolucionando mediante nuevas mejoras y actualizaciones a medida que avance mi formación en desarrollo web.
 
 ## Próximas mejoras
 
@@ -144,7 +144,7 @@ El proyecto continuará evolucionando conforme avance mi aprendizaje. Entre los 
 * Refinar las animaciones y los detalles visuales.
 * Ampliar mis conocimientos de desarrollo frontend y backend.
 * Mantener una estructura de código clara, organizada y fácil de mantener.
-* Desplegar el portfolio y mantener una versión pública actualizada.
+* Revisar y mejorar progresivamente las funcionalidades existentes.
 
 ## Autora
 
