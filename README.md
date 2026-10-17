@@ -22,9 +22,10 @@ El portfolio se encuentra actualmente en desarrollo y evolucionará a medida que
 
 Las principales tecnologías y herramientas utilizadas en el proyecto son:
 
-* **Astro:** framework para desarrollar el sitio web.
+* **Astro:** framework utilizado para desarrollar el sitio web.
 * **HTML:** estructura y contenido de la página.
-* **CSS:** diseño visual, estilos y adaptación a diferentes tamaños de pantalla.
+* **CSS:** diseño visual, estilos, efectos y adaptación a diferentes tamaños de pantalla.
+* **JavaScript:** implementación de interacciones en la navegación.
 * **Git:** control de versiones.
 * **GitHub:** alojamiento y gestión del repositorio.
 
@@ -32,12 +33,24 @@ Las principales tecnologías y herramientas utilizadas en el proyecto son:
 
 * Diseño visual oscuro y minimalista.
 * Identidad visual propia bajo el nombre NB Port.
+* Elemento gráfico principal integrado en la sección de presentación.
+* Navegación que se transforma en una barra flotante al desplazarse por la página.
+* Botón para volver al inicio durante el desplazamiento.
 * Secciones dedicadas a la presentación personal, tecnologías, proyectos y contacto.
 * Estilos organizados en un archivo CSS independiente.
-* Diseño orientado a ofrecer una experiencia de usuario clara y coherente.
+* Código organizado en archivos separados para la estructura, los estilos y la lógica de navegación.
 * Desarrollo progresivo con atención a la accesibilidad, la organización del código y el diseño responsive.
 
 *Nota: el proyecto continúa en desarrollo, por lo que algunas características pueden estar pendientes de implementación o mejora.*
+
+## Uso de inteligencia artificial
+
+Durante el desarrollo del proyecto he utilizado herramientas de inteligencia artificial como apoyo en tareas específicas:
+
+* **Recurso gráfico principal:** asistencia en la creación de la imagen utilizada en la sección de presentación del portfolio.
+* **JavaScript:** asistencia en el desarrollo de la lógica de navegación flotante y del botón para volver al inicio. Estas funcionalidades forman parte de mi proceso de aprendizaje, ya que todavía no he estudiado en profundidad estos conceptos en mi formación.
+
+El uso de estas herramientas me permite explorar nuevas soluciones, trabajar con funcionalidades que todavía estoy aprendiendo y avanzar en la comprensión del código. Mi objetivo es adquirir progresivamente los conocimientos necesarios para implementar este tipo de soluciones de forma autónoma.
 
 ## Instalación y ejecución local
 
@@ -46,15 +59,13 @@ Para ejecutar el proyecto en tu entorno local, necesitas tener instalado [Node.j
 ### 1. Clonar el repositorio
 
 ```bash
-git clone URL_DE_TU_REPOSITORIO
+git clone https://github.com/nayarabastida6/nb-port.git
 ```
-
-Sustituye `URL_DE_TU_REPOSITORIO` por la dirección real del repositorio en GitHub.
 
 ### 2. Acceder a la carpeta del proyecto
 
 ```bash
-cd portfolio-nayara
+cd nb-port
 ```
 
 ### 3. Instalar las dependencias
@@ -88,9 +99,12 @@ Este comando permite comprobar si el proyecto se compila correctamente para su d
 ```text
 portfolio-nayara/
 ├── public/
+│   └── figura-hero.png
 ├── src/
 │   ├── pages/
 │   │   └── index.astro
+│   ├── scripts/
+│   │   └── navegacion.js
 │   └── styles/
 │       └── global.css
 ├── astro.config.mjs
@@ -103,11 +117,14 @@ portfolio-nayara/
 ### Organización de los archivos
 
 * `public/`: contiene archivos estáticos, como imágenes, iconos y otros recursos.
-* `src/pages/index.astro`: contiene la página principal del portfolio.
+* `public/figura-hero.png`: contiene el recurso gráfico principal utilizado en la sección de presentación.
+* `src/pages/index.astro`: contiene la estructura y el contenido de la página principal del portfolio.
+* `src/scripts/navegacion.js`: contiene la lógica JavaScript de la navegación flotante y del botón para volver al inicio.
 * `src/styles/global.css`: reúne los estilos globales y las reglas visuales de la web.
 * `astro.config.mjs`: contiene la configuración de Astro.
 * `package.json`: define los metadatos del proyecto, sus dependencias y los comandos disponibles.
-* `package-lock.json`: registra las versiones concretas de las dependencias instaladas.
+* `package-lock.json`: registra las versiones concretas de las dependencias.
+* `tsconfig.json`: contiene la configuración de TypeScript utilizada por el proyecto.
 
 ## Despliegue
 

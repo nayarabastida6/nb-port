@@ -19,7 +19,7 @@ import "../styles/global.css";
     <!-- Navegación principal -->
     <header class="cabecera">
       <a class="logo" href="#inicio" aria-label="Portfolio de Nayara, inicio">
-        NB Port.<span>.</span>
+        NB Port<span>.</span>
       </a>
 
       <nav aria-label="Navegación principal">
@@ -30,9 +30,16 @@ import "../styles/global.css";
       </nav>
     </header>
 
+    <!-- Botón para volver al inicio -->
+    <button class="volver-inicio" aria-label="Volver al inicio" title="Volver al inicio">⬆</button>
+
     <main>
       <!-- Presentación -->
       <section class="hero" id="inicio">
+        <div class="hero-visual" aria-hidden="true">
+          <img src="/figura-hero.png" alt="" />
+        </div>
+
         <p class="etiqueta">ESTUDIANTE DE DESARROLLO DE APLICACIONES WEB</p>
 
         <h1>
@@ -305,3 +312,7 @@ import "../styles/global.css";
     </footer>
   </body>
 </html>
+
+<script>
+  import "../scripts/navegacion.js";
+</script>
