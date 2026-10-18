@@ -21,3 +21,38 @@ actualizarBotonInicio();
 botonInicio?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+// Franja de tecnologías: cinta continua sin cortes
+const franja = document.querySelector(".franja-tecnologias");
+const pista = document.querySelector(".pista-tecnologias");
+const grupo = pista?.querySelector(".grupo-tecnologias-franja");
+
+if (franja && pista && grupo) {
+  const prepararFranja = () => {
+    // Conservar un único grupo original.
+    pista.querySelectorAll(".grupo-tecnologias-franja").forEach((elemento, indice) => {
+      if (indice > 0) elemento.remove();
+    });
+
+    const anchoGrupo = grupo.getBoundingClientRect().width;
+
+    if (!anchoGrupo) return;
+
+    // Repetir el contenido hasta cubrir holgadamente la zona visible.
+    while (pista.scrollWidth < franja.clientWidth + anchoGrupo * 2) {
+      const copia = grupo.cloneNode(true);
+      copia.setAttribute("aria-hidden", "true");
+      pista.appendChild(copia);
+    }
+
+    // El reinicio coincide exactamente con el comienzo del siguiente grupo.
+    pista.style.setProperty("--recorrido-tecnologias", `-${anchoGrupo}px`);
+  };
+
+  prepararFranja();
+  window.addEventListener("resize", prepararFranja);
+
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(prepararFranja);
+  }
+}

@@ -4,7 +4,7 @@
 
 :root {
   font-family: Arial, Helvetica, sans-serif;
-  color: #f3f2fa;
+  color: #c5bed8;
   background: #0b0b12;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,6 +17,12 @@
   --azul: #60a5fa;
   --verde: #4ade80;
   --borde: rgba(167, 139, 250, 0.16);
+
+  /* Fondos claros */
+  --fondo-claro: #c5bed8;
+  --texto-oscuro: #171521;
+  --texto-claro-secundario: #4e4b5e;
+  --violeta-oscuro: #6d4cc3;
 }
 
 * {
@@ -101,8 +107,8 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding: 24px 8%;
+  gap: 20px;
+  padding: 12px 8%;
   border-bottom: 1px solid var(--borde);
   background: rgba(11, 11, 18, 0.38);
 }
@@ -200,16 +206,14 @@ nav a:hover {
 
 .hero {
   position: relative;
-  min-height: 95vh;
+  min-height: 65vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 100px 12%;
+  padding: 75px 12% 40px;
   overflow: hidden;
   z-index: 0;
-
-  background: transparent;
 }
 
 .hero-visual {
@@ -217,9 +221,8 @@ nav a:hover {
   top: 50%;
   right: 3%;
   transform: translateY(-50%);
-  width: min(58%, 850px);
+  width: min(37%, 800px);
   z-index: -1;
-  pointer-events: none;
 }
 
 .hero-visual::before {
@@ -254,10 +257,10 @@ nav a:hover {
 
 .hero h1 {
   max-width: 900px;
-  margin: 24px 0;
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  margin: 28px 0;
+  font-size: clamp(2rem, 5.5vw, 5rem);
   line-height: 1.08;
-  letter-spacing: -3px;
+  letter-spacing: -2px;
 }
 
 .hero h1 span {
@@ -270,15 +273,15 @@ nav a:hover {
   max-width: 600px;
   margin: 0;
   color: var(--texto-secundario);
-  font-size: 1.08rem;
-  line-height: 1.9;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .acciones {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 28px;
+  gap: 18px;
+  margin-top: 20px;
 }
 
 .boton {
@@ -286,7 +289,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 14px 20px;
+  padding: 12px 18px;
 
   border: 1px solid var(--borde);
   border-radius: 8px;
@@ -383,7 +386,81 @@ nav a:hover {
 }
 
 /* ========================================
-     5. SECCIONES GENERALES
+     5. FRANJA INFINITA DE TECNOLOGÍAS
+  ======================================== */
+
+.franja-tecnologias {
+  width: 100%;
+  overflow: hidden;
+  padding: 26px 0;
+  background: transparent;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+.pista-tecnologias {
+  display: flex;
+  width: max-content;
+
+  animation: desplazar-tecnologias 28s linear infinite;
+  will-change: transform;
+}
+
+.grupo-tecnologias-franja {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 54px;
+  padding-right: 54px;
+}
+
+.grupo-tecnologias-franja span {
+  color: var(--texto-secundario);
+
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.grupo-tecnologias-franja span:nth-child(2n + 1) {
+  color: var(--violeta);
+}
+
+@keyframes desplazar-tecnologias {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(var(--recorrido-tecnologias));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pista-tecnologias {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* ========================================
+     6. SECCIONES GENERALES
   ======================================== */
 
 .seccion {
@@ -408,7 +485,37 @@ nav a:hover {
 }
 
 /* ========================================
-     6. TECNOLOGÍAS
+     7. SOBRE MÍ Y PROYECTOS
+======================================== */
+
+#sobre-mi,
+#proyectos {
+  max-width: none;
+  margin: 0;
+
+  padding: 90px max(7%, calc((100% - 1100px) / 2));
+
+  background: var(--fondo-claro);
+  color: var(--texto-oscuro);
+}
+
+#sobre-mi h2,
+#proyectos h2 {
+  color: var(--texto-oscuro);
+}
+
+#sobre-mi .etiqueta,
+#proyectos .etiqueta {
+  color: var(--violeta-oscuro);
+}
+
+#sobre-mi .texto-seccion,
+#proyectos .texto-seccion {
+  color: var(--texto-claro-secundario);
+}
+
+/* ========================================
+     8. TECNOLOGÍAS
   ======================================== */
 
 .grupo-tecnologias {
@@ -457,7 +564,7 @@ nav a:hover {
 }
 
 /* ========================================
-     7. TARJETAS DE PROYECTOS
+     9. TARJETAS DE PROYECTOS
   ======================================== */
 
 .rejilla-proyectos {
@@ -481,8 +588,8 @@ nav a:hover {
 
   background: linear-gradient(
     145deg,
-    rgba(24, 23, 40, 0.82),
-    rgba(13, 13, 23, 0.8)
+    rgba(24, 23, 40, 0.98),
+    rgba(13, 13, 23, 0.98)
   );
 
   backdrop-filter: blur(12px);
@@ -544,6 +651,7 @@ nav a:hover {
   margin: 22px 0 12px;
   font-size: 1.4rem;
   letter-spacing: -0.5px;
+  color: #e9e7f2;
 }
 
 .tarjeta-proyecto > p {
@@ -578,7 +686,6 @@ nav a:hover {
   border-radius: 5px;
   background: rgba(167, 139, 250, 0.09);
   color: var(--violeta);
-
   font-size: 0.76rem;
 }
 
@@ -613,11 +720,11 @@ nav a:hover {
 }
 
 .nota-proyectos {
-  max-width: 760px;
+  color: rgb(78, 75, 94);
 }
 
 /* ========================================
-     8. CONTACTO
+     10. CONTACTO
   ======================================== */
 
 .contacto {
@@ -633,7 +740,7 @@ nav a:hover {
 }
 
 /* ========================================
-     9. PIE DE PÁGINA
+     11. PIE DE PÁGINA
   ======================================== */
 
 footer {
@@ -644,7 +751,6 @@ footer {
 
   padding: 28px 8%;
   border-top: 1px solid var(--borde);
-
   background: rgba(11, 11, 18, 0.3);
   color: var(--texto-secundario);
   font-size: 0.8rem;
@@ -670,7 +776,7 @@ footer p:last-of-type {
 }
 
 /* ========================================
-     10. DISEÑO RESPONSIVE
+     12. DISEÑO RESPONSIVE
   ======================================== */
 
 @media (max-width: 800px) {
@@ -697,6 +803,12 @@ footer p:last-of-type {
     padding-left: 7%;
   }
 
+  #sobre-mi,
+  #proyectos {
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+
   .indicacion-scroll {
     right: 7%;
   }
@@ -712,6 +824,7 @@ footer p:last-of-type {
     align-items: flex-start;
     flex-direction: column;
     gap: 20px;
+
     padding-top: 20px;
     padding-bottom: 20px;
   }
@@ -753,6 +866,12 @@ footer p:last-of-type {
     padding-bottom: 70px;
   }
 
+  #sobre-mi,
+  #proyectos {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
   .tarjeta-proyecto {
     padding: 24px;
   }
@@ -763,12 +882,17 @@ footer p:last-of-type {
 
   footer {
     align-items: flex-start;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+
+  footer p:first-of-type,
+  footer p:last-of-type {
+    text-align: left;
   }
 }
 
 /* ========================================
-     11. ACCESIBILIDAD: REDUCIR MOVIMIENTO
+     13. ACCESIBILIDAD: REDUCIR MOVIMIENTO
   ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
